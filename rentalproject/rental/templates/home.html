@@ -1,17 +1,83 @@
 <!DOCTYPE html>
-<html>
 <head>
     <title>Home</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <style>
+        .navbar {
+            background-color: #fff7e6 !important;
+        }
+        body {
+            background-color: #fff7e6;
+        }
+        .slick-slide img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to the Booking System</h1>
-        <p>Here you can book places and manage reservations.</p>
-        <div style="text-align: center;">
-            <a href="{% url 'booking_form' %}" class="btn">Book a Place</a>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Book a Bike</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacts</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Slides -->
+    <div class="slider">
+        <div>
+            <img src="https://plus.unsplash.com/premium_photo-1678718713393-2b88cde9605b?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmlrZXxlbnwwfHwwfHx8MA%3D%3D" alt="Slide 1">
+        </div>
+        <div>
+            <img style="transform: rotateY(180deg);" src="https://plus.unsplash.com/premium_photo-1677838847763-0810bff8f40e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Slide 2">
+        </div>
+        <div style="height: 350px; width: 100%; overflow: hidden;">
+            <img style="transform: scale(1.5); width: 100%; height: 100%; object-fit: cover;" src="https://plus.unsplash.com/premium_photo-1677993186588-d0812c569caa?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90oy1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Slide 3">
+        </div>
+        <div>
+            <img style="transform: rotateY(180deg);" src="https://m.media-amazon.com/images/I/81wuzlQB0IL._AC_UF894,1000_QL80_.jpg" alt="Slide 4">
         </div>
     </div>
+
+    <!-- Content -->
+    <div class="container text-center mt-5">
+        <h1 class="display-4">Welcome to the Booking System</h1>
+        <p class="lead">Here you can book bikes, scooters and manage reservations.</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYkdj93mg5f/94zQ9YYQb9jHJv5I2zUW2ov9K1r5XkKzYRB5Av9F3MmqxEf98a" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.slider').slick({
+                autoplay: true,
+                autoplaySpeed: 2000,
+                dots: true,
+                arrows: false,
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1
+            });
+        });
+    </script>
 </body>
 </html>
