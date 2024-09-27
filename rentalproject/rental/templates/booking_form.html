@@ -1,16 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking Form</title>
     {% load static %}
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f0ede5;
+            color: #5a5a5a;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        h1 {
+            color: #947563;
+            font-size: 2.5rem;
+        }
+        p {
+            font-size: 1.2rem;
+            color: #6c757d;
+            text-align: center;
+        }
+        .btn-primary {
+            background-color: #8a7d72;
+            border: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #7a6e65;
+        }
+        .btn-secondary {
+            background-color: #5a5a5a;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #c4b6a2;
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff7e6;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="color: #947563; font-family: 'Cormorant Garamond', serif;">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="#" style="color: #5a5a5a; font-family: 'Cormorant Garamond', serif;">Book a Bike</a>
+                    <a class="nav-item nav-link" href="#" style="color: #5a5a5a; font-family: 'Cormorant Garamond', serif;">Contacts</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Content -->
     <div class="container mt-5">
         <h1 class="text-center">Book a Place</h1>
+        <p class="lead">Fill out the form below to reserve your transport</p>
         <form method="post" class="mt-4">
             {% csrf_token %}
             {{ form.as_p }}
@@ -23,7 +69,6 @@
         </div>
     </div>
 
-    <!-- jQuery, Popper.js, Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYkdacHqzD2RN1zK3oLczBLLEv9+CbzXkFfRAI47jWE5xX9cs9qJ0gBRVgiZKg" crossorigin="anonymous"></script>
