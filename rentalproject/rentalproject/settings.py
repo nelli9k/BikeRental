@@ -122,3 +122,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = 'home'  # or any other named URL you want to redirect to
+LOGOUT_REDIRECT_URL = 'home'  # optionally, to redirect after logout
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

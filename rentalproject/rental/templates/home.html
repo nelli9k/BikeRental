@@ -22,7 +22,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff7e6;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#" style="color: #947563; font-family: 'Cormorant Garamond', serif;">Home</a>
+            <a class="navbar-brand" href="{% url 'home' %}" style="color: #947563; font-family: 'Cormorant Garamond', serif;">Home</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -31,9 +31,23 @@
                     <a class="nav-item nav-link" href="{% url 'booking_form' %}" style="color: #5a5a5a; font-family: 'Cormorant Garamond', serif;">Book a Bike</a>
                     <a class="nav-item nav-link" href="#" style="color: #5a5a5a; font-family: 'Cormorant Garamond', serif;">Contacts</a>
                 </div>
+
+                <!-- Right-aligned buttons -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto d-flex align-items-center">
+                        {% if user.is_authenticated %}
+                            <form method="POST" action="{% url 'logout' %}" class="d-inline-block">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-theme" style="color: #fff7e6; background-color: #947563; font-family: 'Cormorant Garamond', serif; margin-right: 10px;">Log out</button>
+                            </form>
+                        {% else %}
+                            <a href="{% url 'login' %}" class="btn btn-theme" style="color: #fff7e6; background-color: #947563; font-family: 'Cormorant Garamond', serif; margin-right: 10px;">Login</a>
+                            <a href="{% url 'register' %}" class="btn btn-theme" style="color: #fff7e6; background-color: #5a5a5a; font-family: 'Cormorant Garamond', serif;">Register</a>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
     <!-- Slides -->
     <div class="slider">

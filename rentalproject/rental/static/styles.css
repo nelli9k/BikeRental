@@ -94,3 +94,17 @@ a:hover {
     text-align: center;
     margin-bottom: 20px;
 }
+
+.btn-theme {
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.btn-theme:hover {
+    opacity: 0.9;
+}
+
+.navbar-nav.ms-auto {
+    margin-left: auto;
+}
