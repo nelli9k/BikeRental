@@ -1,6 +1,136 @@
-<h2>Register</h2>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Register</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #fff2e7;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .register-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .register-box {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 400px;
+            width: 100%;
+        }
+        .register-box h2 {
+            text-align: center;
+            color: #947563;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            font-weight: normal;
+            color: #947563;
+        }
+        td input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .register-button {
+            background-color: #947563;
+            color: #fff;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .register-button:hover {
+            background-color: #7a5d4f;
+        }
+        .register-box p {
+            text-align: center;
+            color: #5a5a5a;
+        }
+        .register-box a {
+            color: #947563;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff7e6;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}" style="color: #947563; font-family: 'Cormorant Garamond', serif;">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="{% url 'booking_form' %}" style="color: #5a5a5a; font-family: 'Cormorant Garamond', serif;">Book a Bike</a>
+                    <a class="nav-item nav-link" href="{% url 'contacts' %}" style="color: #5a5a5a; font-family: 'Cormorant Garamond', serif;">Contacts</a>
+                </div>
+
+                <!-- Right-aligned buttons -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto d-flex align-items-center">
+                        {% if user.is_authenticated %}
+                            <form method="POST" action="{% url 'logout' %}" class="d-inline-block">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-theme" style="color: #fff7e6; background-color: #947563; font-family: 'Cormorant Garamond', serif; margin-right: 10px;">Log out</button>
+                            </form>
+                        {% else %}
+                            <a href="{% url 'login' %}" class="btn btn-theme" style="color: #fff7e6; background-color: #947563; font-family: 'Cormorant Garamond', serif; margin-right: 10px;">Login</a>
+                            <a href="{% url 'register' %}" class="btn btn-theme" style="color: #fff7e6; background-color: #5a5a5a; font-family: 'Cormorant Garamond', serif;">Register</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    <div class="register-container">
+        <div class="register-box">
+            <h2>Register</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <th>Username:</th>
+                        <td>{{ form.username }}</td>
+                    </tr>
+                    <tr>
+                        <th>Password:</th>
+                        <td>{{ form.password1 }}</td>
+                    </tr>
+                    <tr>
+                        <th>Confirm Password:</th>
+                        <td>{{ form.password2 }}</td>
+                    </tr>
+                </table>
+                <button type="submit" class="register-button">Register</button>
+            </form>
+            <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+        </div>
+    </div>
+
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <div class="text-center p-3">
+            © 2024 Our site:
+            <a class="text-dark" href="#">bookbike.com</a>
+        </div>
+    </footer>
+
+</body>
+</html>
